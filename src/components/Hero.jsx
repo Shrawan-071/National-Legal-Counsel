@@ -20,11 +20,11 @@ function Hero() {
         <div className="relative z-20 max-w-4xl" style={{ textShadow: '0 14px 35px rgba(0, 0, 0, 0.35)' }}>
           <h1 className="flex flex-col items-center gap-4 hover-zoom-text">
             <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white/90 leading-tight">WELCOME TO</span>
-            <span className="flex items-center justify-center gap-4 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl whitespace-nowrap">
+            <span className="flex flex-col items-center justify-center gap-4 text-3xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl break-words">
               <div className="flex items-center justify-center w-14 h-14 bg-brand-500 text-slate-950 rounded-xl shadow-lg shadow-brand-500/40">
                 <span className="text-3xl">⚖️</span>
               </div>
-              National Legal Counsel
+              <span className="max-w-full text-center break-words">National Legal Counsel</span>
             </span>
           </h1>
           <p className="mt-8 inline-flex rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-slate-950 hover-zoom transition-all hover:bg-brand-400 hover:text-slate-950">
