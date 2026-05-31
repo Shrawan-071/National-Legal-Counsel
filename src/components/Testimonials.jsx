@@ -23,31 +23,39 @@ const initialComments = [
 ];
 
 function Testimonials() {
-  const [comments, setComments] = useState(() => {
-    try {
-      const stored = localStorage.getItem(localStorageKey);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
-        }
-      }
-    } catch (error) {
-      console.warn('Unable to load comments from localStorage', error);
-    }
-    return initialComments;
-  });
+  const [comments, setComments] = useState(initialComments);
+  const [hydrated, setHydrated] = useState(false);
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
   const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    try {
+      const stored = localStorage.getItem(localStorageKey);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setComments(parsed);
+        }
+      }
+    } catch (error) {
+      console.warn('Unable to load comments from localStorage', error);
+    }
+
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated || typeof window === 'undefined') return;
+
     try {
       localStorage.setItem(localStorageKey, JSON.stringify(comments));
     } catch (error) {
       console.warn('Unable to save comments to localStorage', error);
     }
-  }, [comments]);
+  }, [comments, hydrated]);
 
   const sortedComments = useMemo(
     () => [...comments].sort((a, b) => new Date(b.date) - new Date(a.date)),

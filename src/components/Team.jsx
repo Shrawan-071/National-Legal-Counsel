@@ -1,12 +1,10 @@
-import raamImage from '../assets/raam.jpeg';
-
 const teamMembers = [
   {
     name: 'Ramprawesh Yadav',
     role: 'Founding Partner',
     phone: '9820772703',
     description: 'Experienced legal strategist specializing in criminal law, corporate representation, and complex negotiations.',
-    image: raamImage,
+    image: '/assets/raam.jpeg',
   },
   {
     name: 'Ranjana Raut',

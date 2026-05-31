@@ -1,5 +1,3 @@
-import heroBg from '../assets/nlc.png';
-
 function Hero() {
   return (
     <section
@@ -9,7 +7,7 @@ function Hero() {
       <div
         className="absolute inset-0 z-0 animate-zoom-slow"
         style={{
-          backgroundImage: `url(${heroBg})`,
+          backgroundImage: 'url(/assets/nlc.png)',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
